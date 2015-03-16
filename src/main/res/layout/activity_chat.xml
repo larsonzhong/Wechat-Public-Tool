@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#efefef"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="68dp"
+        android:background="@drawable/abc_list_selector_disabled_holo_light"
+        android:gravity="center_vertical" >
+
+        <ImageButton
+            android:id="@+id/title_back"
+            android:layout_width="50dp"
+            android:layout_margin="10dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/title_back"
+            android:onClick="chat_back"
+            android:text="返回"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/title_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="big foolish"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+
+    <ListView
+        android:id="@+id/chat_layout_list"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:background="#e4e4e4"
+        android:divider="@null"
+        android:transcriptMode="normal" />
+
+    <!-- 录音显示UI层 -->
+
+    <LinearLayout
+        android:id="@+id/rcChat_popup"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:visibility="gone" >
+
+        <include
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            layout="@layout/voice_rcd_hint_window" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#f9f9f9">
+
+        <!--功能button-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="45dip"
+            android:layout_gravity="center"
+            android:orientation="horizontal" >
+
+            <!-- 加号点击按钮 -->
+            <ImageButton
+                android:id="@+id/btn_plus"
+                android:layout_width="38dip"
+                android:layout_height="38dip"
+                android:layout_margin="3dp"
+                android:background="@drawable/chat_more" />
+
+            <ImageButton
+                android:id="@+id/choose_face"
+                android:layout_width="38dip"
+                android:layout_height="38dip"
+                android:layout_margin="3dp"
+                android:background="@drawable/choose_face" />
+
+            <ImageButton
+                android:id="@+id/msgTypeBtn"
+                android:layout_width="38dip"
+                android:layout_height="38dip"
+                android:layout_margin="3dp"
+                android:background="@drawable/chatting_setmode_msg_btn" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/chat_record"
+            android:layout_width="fill_parent"
+            android:layout_height="45dip"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1.0"
+            android:background="@drawable/chat_send_btn"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="按住说话"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/sendText_ly"
+            android:layout_width="fill_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_height="55dip">
+
+            <EditText
+                android:id="@+id/chat_edit_edit"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:textSize="15dip"
+                android:maxHeight="100dip"
+                android:minHeight="42dip"
+                android:background="@drawable/chat_edit_content_bg"
+                android:layout_marginTop="5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="5dip"
+                android:layout_marginBottom="5dip"
+                android:paddingTop="8dip"
+                android:paddingBottom="8dip"
+                android:paddingLeft="15dip"
+                android:paddingRight="15dip"
+                android:layout_weight="1" />
+
+
+            <Button
+                android:id="@+id/chat_button_send"
+                android:layout_width="70dip"
+                android:background="@drawable/chat_send_button_bg"
+                android:layout_alignParentBottom="true"
+                android:layout_height="40dip"
+                android:textSize="15dip"
+                android:textColor="#a1a1a1"
+                android:text="send" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/face_relative"
+        android:layout_width="fill_parent"
+        android:layout_height="124dip"
+        android:background="#f6f5f5"
+        android:visibility="gone" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/face_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </android.support.v4.view.ViewPager>
+
+        <LinearLayout
+            android:id="@+id/page_dot_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="6dip"
+            android:gravity="center"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/fun_relative"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#f6f5f5"
+        android:visibility="gone" >
+
+        <GridView
+            android:id="@+id/fun_gradview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:columnWidth="90dp"
+            android:gravity="center"
+            android:horizontalSpacing="10dp"
+            android:numColumns="auto_fit"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="10dp" >
+        </GridView>
+    </RelativeLayout>
+</LinearLayout>
